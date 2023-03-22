@@ -1,176 +1,32 @@
 import React, { useState } from 'react';
 import * as AiIcons from 'react-icons/ai';
 import { AiOutlineBars } from 'react-icons/ai';
-import { CgChevronDown, CgChevronLeft } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { BsFacebook } from 'react-icons/bs'
+import { Link as LinkRoll } from 'react-scroll'
 
 const menuData = [
     {
-        title: 'Home',
-        path: '/',
-        iconClosed: <CgChevronLeft />,
-        iconOpened: <CgChevronDown />,
-
-        subNav: [
-            {
-                title: 'Home',
-                path: '/',
-            },
-            {
-                title: 'Home Two',
-                path: '/home-two',
-            },
-            {
-                title: 'Home Three',
-                path: '/home-three',
-            },
-            {
-                title: 'Home Four',
-                path: '/home-four',
-            },
-            {
-                title: 'Home Five',
-                path: '/home-five',
-            },
-        ],
+        title: 'Services',
+        path: 'services',
     },
     {
         title: 'About',
-        path: '/',
-        iconClosed: <CgChevronLeft />,
-        iconOpened: <CgChevronDown />,
-
-        subNav: [
-            {
-                title: 'About One',
-                path: '/about-one',
-            },
-            {
-                title: 'About Two',
-                path: '/about-two',
-            },
-        ],
+        path: 'about',
     },
-
     {
-        title: 'Services',
-        path: '#',
-
-        iconClosed: <CgChevronLeft />,
-        iconOpened: <CgChevronDown />,
-
-        subNav: [
-            {
-                title: 'Services',
-                path: '/services',
-                cName: 'sub-nav',
-            },
-            {
-                title: 'General Contracting',
-                path: '/general-contracting',
-                cName: 'sub-nav',
-            },
-            {
-                title: 'Metrial Managment',
-                path: '/metrial-managment',
-            },
-            {
-                title: 'Building Renovation',
-                path: '/building-renovation',
-            },
-            {
-                title: 'Architecture Design',
-                path: '/architecture-design',
-            },
-            {
-                title: 'Multistory Build',
-                path: '/multistory-build',
-            },
-        ],
+        title: 'Portfolio',
+        path: 'portfolio',
     },
-
     {
-        title: 'Page',
-        path: '#',
-
-        iconClosed: <CgChevronLeft />,
-        iconOpened: <CgChevronDown />,
-
-        subNav: [
-            {
-                title: 'Portfolio',
-                path: '/portfolio',
-                cName: 'sub-nav',
-            },
-            {
-                title: 'Portfolio Details',
-                path: '/portfolio-details',
-                cName: 'sub-nav',
-            },
-            {
-                title: 'Team',
-                path: '/team',
-            },
-            {
-                title: 'Team Details',
-                path: '/team-details',
-            },
-            {
-                title: 'Testimonials',
-                path: '/testimonials',
-            },
-            {
-                title: 'Pricing',
-                path: '/pricing',
-            },
-            {
-                title: 'FAQ',
-                path: '/faq',
-            },
-            {
-                title: 'Error',
-                path: '/error',
-            },
-        ],
+        title: 'FAQ',
+        path: 'faq',
     },
-
     {
-        title: 'Blog',
-        path: '#',
-
-        iconClosed: <CgChevronLeft />,
-        iconOpened: <CgChevronDown />,
-
-        subNav: [
-            {
-                title: 'Blog',
-                path: '/blog',
-                cName: 'sub-nav',
-            },
-            {
-                title: 'Blog Grid',
-                path: '/blog-grid',
-                cName: 'sub-nav',
-            },
-            {
-                title: 'Blog List',
-                path: '/blog-list',
-            },
-            {
-                title: 'Blog Standard',
-                path: '/blog-standard',
-            },
-            {
-                title: 'Blog Details',
-                path: '/blog-details',
-            },
-        ],
-    },
-
-    {
-        title: 'Contact',
-        path: '/contact',
+        title: 'Testimonials',
+        path: 'testimonials',
     },
 ];
 
@@ -221,22 +77,11 @@ const SubMenu = ({ item }) => {
 
     return (
         <>
-            <SidebarLink to={process.env.PUBLIC_URL + `${item.path}`} onClick={item.subNav && showSubnav}>
+            <SidebarLink onClick={item.subNav && showSubnav}>
                 <div>
-                    {item.icon}
                     <SidebarLabel>{item.title}</SidebarLabel>
                 </div>
-                <div>
-                    {item.subNav && subnav ? item.iconOpened : item.subNav ? item.iconClosed : null}
-                </div>
             </SidebarLink>
-            {subnav &&
-                item.subNav.map((data, index) => (
-                    <DropdownLink to={process.env.PUBLIC_URL + `${data.path}`} key={index}>
-                        {item.icon}
-                        <SidebarLabel>{data.title}</SidebarLabel>
-                    </DropdownLink>
-                ))}
         </>
     );
 };
@@ -271,9 +116,8 @@ const SidebarWrap = styled.div`
 
 const MobileMenu = () => {
     const [sidebar, setSidebar] = useState(false);
-
     const showSidebar = () => setSidebar(!sidebar);
-    let publicUrl = process.env.PUBLIC_URL+'/'
+    const publicUrl = process.env.PUBLIC_URL+'/'
 
     return (
         <>
@@ -299,24 +143,29 @@ const MobileMenu = () => {
                                 />
                             </NavIcon>
                             {menuData.map((item, index) => (
-                                <SubMenu item={item} key={index} />
+                                <LinkRoll active onClick={showSidebar} Class="active" to={item.path} spy={true} smooth={true} offset={50} duration={500}>
+                                    <SubMenu item={item} key={index}/>
+                                </LinkRoll>
                             ))}
                             <ul className="mobile-nav__contact list-unstyled">
                                 <li>
                                     <i className="fa fa-envelope" aria-hidden="true"></i>
-                                    <a href="mailto:needhelp@packageName__.com">needhelp@const.com</a>
+                                    <a href="mailto:tflake83@gmail.com.com">tflake83@gmail.com</a>
                                 </li>
                                 <li>
                                     <i className="fa fa-phone" aria-hidden="true"></i>
-                                    <a href="tel:666-888-0000">666 888 0000</a>
+                                    <a href="tel:7343417846">734-341-7846</a>
                                 </li>
                             </ul>
                             <div className="mobile-nav__top">
                                 <div className="mobile-nav__social">
-                                    <a href="https://twitter.com/"><span className="fab fa-twitter"></span></a>
-                                    <a href="https://facebook.com/"><span className="fab fa-facebook-square"></span></a>
-                                    <a href="https://pinterest.com/"><span className="fab fa-pinterest-p"></span></a>
-                                    <a href="https://instagram.com/"><span className="fab fa-instagram"></span></a>
+                                    
+                                    <a href="https://facebook.com">
+                                        <span className="first "><AiOutlineInstagram/></span>
+                                    </a>
+                                    <a href="https://twitter.com">
+                                        <span className="first "><BsFacebook/></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
