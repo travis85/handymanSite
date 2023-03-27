@@ -88,8 +88,8 @@ const SubMenu = ({ item }) => {
 
 const NavIcon = styled(Link)`
     color: #ff5e14;
-    font-size: 2rem;
-    height: 50px;
+    font-size: 3rem;
+    height: 10px;
     display: flex;
     align-items: center;
     margin-left: 20px;
@@ -122,7 +122,7 @@ const MobileMenu = () => {
     return (
         <>
             <>
-                <NavIcon to="#" style={{ justifyContent: 'flex-end' }}>
+                <NavIcon to="#">
                     <AiOutlineBars onClick={showSidebar} />
                 </NavIcon>
 
@@ -130,9 +130,9 @@ const MobileMenu = () => {
                     <SidebarWrap>
                         <div className="mobile-nav__content">
                             <div className="logo-box">
-                                <Link to={process.env.PUBLIC_URL + `/`} aria-label="logo image"><img src={publicUrl+"assets/images/resources/logo-1.png"} width="155" alt="" /></Link>
+                                <img src={"assets/images/brand/handyHammerLogoWhite.png"} alt="" />
                             </div>
-                            <NavIcon to="#">
+                            <NavIcon to="#" className='mobile-nav__close'>
                                 <AiIcons.AiOutlineClose
                                     style={{
                                         color: 'white',
