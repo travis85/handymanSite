@@ -1,9 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { BsFacebook } from 'react-icons/bs'
+import { Link as LinkRoll } from 'react-scroll'
+
 
 export default class FooterOne extends React.Component {
     render(){
-        let publicUrl = process.env.PUBLIC_URL+'/'
+        const publicUrl = process.env.PUBLIC_URL+'/'
         return (
             <>
                 <footer className="footer-one-sec">
@@ -19,103 +23,125 @@ export default class FooterOne extends React.Component {
                                             <div className="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
                                                 <div className="footer-widget__column footer-widget__about">
                                                     <div className="footer-widget__about-logo">
-                                                        <Link to="/"><img src={publicUrl+"assets/images/resources/logo-1.png"} alt="Logo" /></Link>
+                                                        <img src={publicUrl + "assets/images/brand/handyHammerLogoWhite.png"} alt="Logo" />
+                                                        <div className='footer_contact_info'>
+                                                            
+                                                            <p>
+                                                               
+                                                               <span className="icon-phone-call"></span> <a href="tel:7343417846">Call Us</a> <br />
+                                                                <span className="icon-email"></span><a href="mailto:handyhammersdetroit@gmail.com">Email Us</a>
+                                                            </p>
+                                                            
+                                                        </div>
+                                                        
                                                     </div>
 
-                                                    <p className="footer-widget__about-text">Duis aute irure dolor in reprehenderit
-                                                        on voluptate velit esse cillum dolore eu nulla pariatur. Excepteur sint
-                                                        occaecat</p>
-
-                                                    <div className="footer-widget__about-social-link">
+                                                    
+                                                </div>
+                                                <div className="footer-widget__about-social-link">
+                                                        <p>Get social with us!</p>
                                                         <ul>
                                                             <li>
-                                                                <a href="https://facebook.com">
-                                                                    <span className="first icon-facebook-app-symbol"></span>
-                                                                    <span className="second icon-facebook-app-symbol"></span>
+                                                                <a href="https://www.instagram.com/handy_hammers/">
+                                                                    <span className="first "><AiOutlineInstagram/></span>
+                                                                    <span className="second "><AiOutlineInstagram/></span>
                                                                 </a>
                                                             </li>
 
                                                             <li>
-                                                                <a href="https://twitter.com">
-                                                                    <span className="first icon-twitter"></span>
-                                                                    <span className="second icon-twitter"></span>
-                                                                </a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="https://pinterest.com">
-                                                                    <span className="first icon-pinterest"></span>
-                                                                    <span className="second icon-pinterest"></span>
-                                                                </a>
-                                                            </li>
-
-                                                            <li>
-                                                                <a href="https://linkedin.com">
-                                                                    <span className="first icon-linkedin"></span>
-                                                                    <span className="second icon-linkedin"></span>
+                                                                <a href="https://www.facebook.com/profile.php?id=100091252729048">
+                                                                    <span className="first "><BsFacebook/></span>
+                                                                    <span className="second"><BsFacebook/></span>
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
 
                                             <div className="col-xl-2 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s">
                                                 <div className="footer-widget__column footer-widget__services">
-                                                    <h2 className="footer-widget__title">Our Services</h2>
+                                                    {/* <h2 className="footer-widget__title">Our Services</h2> */}
                                                     <ul className="footer-widget__services-list">
-                                                        <li className="footer-widget__services-list-item"><Link to="/about-one">About Company</Link></li>
-                                                        <li className="footer-widget__services-list-item"><Link to="/services">Company Services</Link></li>
-                                                        <li className="footer-widget__services-list-item"><Link to="/blog">Comapny News</Link></li>
-                                                        <li className="footer-widget__services-list-item"><Link to="/portfolio">Company Project</Link></li>
-                                                        <li className="footer-widget__services-list-item"><Link to="/">Our Case Study</Link></li>
+                                                        
+                                                        <li className="footer-widget__services-list-item">
+                                                            <LinkRoll active Class="active" to="services" spy={true} smooth={true} offset={50} duration={500} >Company Services</LinkRoll>
+                                                        </li>
+                                                        <li className="footer-widget__services-list-item">
+                                                            <LinkRoll active Class="active" to="about" spy={true} smooth={true} offset={50} duration={500} >About Us</LinkRoll>
+                                                        </li>
+                                                        <li className="footer-widget__services-list-item">
+                                                            <LinkRoll active Class="active" to="portfolio" spy={true} smooth={true} offset={50} duration={500}>Portfolio</LinkRoll>
+                                                        </li>
+                                                        <li className="footer-widget__services-list-item">
+                                                            <LinkRoll active Class="active" to="faq" spy={true} smooth={true} offset={50} duration={500}>FAQ</LinkRoll>
+                                                        </li>
+                                                        <li className="footer-widget__services-list-item">
+                                                            <LinkRoll active Class="active" to="testimonials" spy={true} smooth={true} offset={50} duration={500}>Testimonials</LinkRoll>
+                                                        </li>
+                                                            
                                                     </ul>
                                                 </div>
                                             </div>
-
-                                            <div className="col-xl-2 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.5s">
-                                                <div className="footer-widget__column footer-widget__explore">
-                                                    <h2 className="footer-widget__title">Our Explore</h2>
-                                                    <ul className="footer-widget__explore-list">
-                                                        <li className="footer-widget__explore-list-item"><Link to="/">Project Planing</Link></li>
-                                                        <li className="footer-widget__explore-list-item"><Link to="/">Cost Calculator</Link></li>
-                                                        <li className="footer-widget__explore-list-item"><Link to="/">Our Testinonials</Link></li>
-                                                        <li className="footer-widget__explore-list-item"><Link to="/">Mining Sector</Link></li>
-                                                        <li className="footer-widget__explore-list-item"><Link to="/">Closure & Reform</Link></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
                                             <div className="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.7s">
                                                 <div className="footer-widget__column footer-widget__posts">
-                                                    <h2 className="footer-widget__title">Featured Posts</h2>
+                                                    <h2 className="footer-widget__title">Home Tips</h2>
                                                     <div className="footer-widget__posts-list">
                                                         <ul>
                                                             <li>
                                                                 <div className="img-box">
-                                                                    <img src={publicUrl+"assets/images/resources/footer-v1-img1.jpg"} alt="" />
+                                                                    <img src={publicUrl+"assets/images/footer/creativeRemodel.webp"} alt="" />
                                                                     <div className="overlay-icon">
-                                                                        <Link to={process.env.PUBLIC_URL + `/blog-details`}><span className="icon-link"></span></Link>
+                                                                        <a href={'https://www.thisoldhouse.com/cabinets/21018036/21-ways-to-save-on-your-house-remodel'}>
+                                                                            {/* <span className="icon-link"></span> */}
+                                                                        </a>
                                                                     </div>
                                                                 </div>
 
                                                                 <div className="text-box">
-                                                                    <p><Link to={process.env.PUBLIC_URL + `/blog-details`}>Althought Many People May <br /> Overlook The Need</Link></p>
-                                                                    <span>12 june 2022</span>
+                                                                    <p><a href={'https://www.thisoldhouse.com/cabinets/21018036/21-ways-to-save-on-your-house-remodel'}>
+                                                                        Creative ways to afford your next remodel.
+                                                                    </a></p>
+                                                                    
                                                                 </div>
                                                             </li>
 
                                                             <li>
                                                                 <div className="img-box">
-                                                                    <img src={publicUrl+"assets/images/resources/footer-v1-img2.jpg"} alt="" />
+                                                                    <img src={publicUrl+"assets/images/footer/hottestTrends.jpeg"} alt="" />
                                                                     <div className="overlay-icon">
-                                                                        <Link to={process.env.PUBLIC_URL + `/blog-details`}><span className="icon-link"></span></Link>
+                                                                        <a href={'https://www.goodhousekeeping.com/home/decorating-ideas/g38502403/interior-design-trends-2022/?utm_source=google&utm_medium=cpc&utm_campaign=arb_ga_ghk_d_bm_prog_org_us_g38502403&gclid=Cj0KCQjw8e-gBhD0ARIsAJiDsaU1-yAxM4laGIF9xODDJgi_gk4j_bTex-z6nRdV4j7ZzliYHg_6A2EaApZAEALw_wcB'}>
+                                                                            {/* <span className="icon-link"></span> */}
+                                                                        </a>
                                                                     </div>
                                                                 </div>
 
                                                                 <div className="text-box">
-                                                                    <p><Link to={process.env.PUBLIC_URL + `/blog-details`}>Veterans In Business Network <br /> National Conference</Link></p>
-                                                                    <span>12 june 2022</span>
+                                                                    <p>
+                                                                        <a href={'https://www.goodhousekeeping.com/home/decorating-ideas/g38502403/interior-design-trends-2022/?utm_source=google&utm_medium=cpc&utm_campaign=arb_ga_ghk_d_bm_prog_org_us_g38502403&gclid=Cj0KCQjw8e-gBhD0ARIsAJiDsaU1-yAxM4laGIF9xODDJgi_gk4j_bTex-z6nRdV4j7ZzliYHg_6A2EaApZAEALw_wcB'}>
+                                                                            Hottest Home Trends <br/>
+                                                                            of 2023
+                                                                        </a>
+                                                                    </p>
+                                                                    
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div className="img-box">
+                                                                    <img src={publicUrl+"assets/images/footer/100handytips.jpeg"} style={{height: 46, width: 70}} alt="" />
+                                                                    <div className="overlay-icon">
+                                                                        <a href={'https://www.familyhandyman.com/list/100-of-the-handiest-home-tips/'}>
+                                                                            {/* <span className="icon-link"></span> */}
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div className="text-box">
+                                                                    <p>
+                                                                        <a href={'https://www.familyhandyman.com/list/100-of-the-handiest-home-tips/'}>
+                                                                            100 Handy Home tips
+                                                                        </a>
+                                                                    </p>
+                                                                    
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -135,16 +161,20 @@ export default class FooterOne extends React.Component {
                                 <div className="col-xl-12">
                                     <div className="footer-one__bottom-inner">
                                         <div className="footer-one__bottom-text">
-                                            <p>Copyright &copy;2022. All rights reserved to <Link to="/">Const</Link></p>
+                                            <p>
+                                                Copyright &copy;2023. All rights reserved to <br/>
+                                                <span id='companyName'> Handy Hammers LLC </span>
+
+                                            </p>
                                         </div>
 
-                                        <div className="footer-one__bottom-list">
+                                        {/* <div className="footer-one__bottom-list">
                                             <ul>
                                                 <li><Link to="/about-one">Terms & Condition </Link></li>
                                                 <li><Link to="/about-one"> Services</Link></li>
                                                 <li><Link to="/about-one">Careers</Link></li>
                                             </ul>
-                                        </div>
+                                        </div> */}
 
                                     </div>
                                 </div>
