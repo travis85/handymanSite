@@ -15,12 +15,12 @@ export default class ServiceThree extends React.Component {
                     <div className="shape1"><img src={publicUrl+"assets/images/shapes/services-v3-shape1.png"} alt="#" /></div>
                     <div className="shape2 rotate-me"><img src={publicUrl+"assets/images/update1.0/services-v3-shape2.png"} alt="#" /></div>
                     <div className="container">
-                        <div className="row">
+                        <div className="serviceHeader">
                             <div className="col-xl-12">
                                 <div className="services-three__top">
                                     <div className="sec-title">
                                         <div className="sec-title__tagline">
-                                            <h6> COMPANY SERVICES </h6> <span className="right"></span> <br/>
+                                            <span className="left"></span><h6> COMPANY SERVICES </h6> <span className="right"></span> <br/>
                                             <p> If you dont see what you need give us a call! </p>
                                         </div>
                                     </div>
